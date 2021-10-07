@@ -23,7 +23,7 @@ function agregarInteres(){
         let interes = Number(prompt("Ingresar el porcentaje de interes, en numero entero"));
         return interes;       
     } else if (tieneInteres == "NO") {
-        let interes = 1;
+        let interes = 0;
         return interes;
     }
     let interes = tieneInteres
