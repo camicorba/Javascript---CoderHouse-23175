@@ -5,33 +5,33 @@ class Producto{
         this.precio = precio
         this.stock = stock
     }
-}
-
-//METODO PARA BUSCAR
-const findOne = (nombre) => {
-    nombre = nombre.toLowerCase()
-    const producto = productos.find (producto => producto.nombre === nombre)
-}
-
-//METODO PARA ELIMINAR
-const remove = (nombre) => {
-    nombre = nombre.toLowerCase
+    sumaIva(){
+        this.precio = this.precio * 1.21;
+    }
 }
 
 
-const productos = []
+// INGRESO DATOS MEDIANTE PROMPT
+const productos = [];
+do {
+    const agregar = prompt("Ingrese el nombre de un producto. Para finalizar, escribir 'esc'.");
+    if (agregar === "esc" || agregar === "Esc" || agregar === "ESC" ){
+        break;
+    } else {
+        nombre = agregar;
+        let tipo = prompt("Ingrese el tipo de producto");
+        let precio= Number(prompt("Ingresa el precio del producto"));
+        let stock = Number(prompt("Ingresa la cantidad de stock"))
+        productos.push(new Producto(nombre, tipo, precio, stock));
+    }
+} while (nombre != "esc" || nombre != "Esc" || nombre != "ESC" );
 
-const create = (producto) => {
-    productos.push(producto)
+console.log(productos)
+
+for (const producto of productos){
+    document.write("Nombre del producto: " + producto.nombre + "<br>")
+    document.write("Tipo de producto: " + producto.tipo + "<br>")
+    document.write("Precio del producto: " + producto.precio + "<br>")
+    document.write("Cantidad de stock " + producto.stock + "<br>")
+    document.write("<br>")
 }
-
-
-const producto1 = new Producto("planta", "sansviera", 1500, 3);
-const producto2 = new Producto("planta", "suculenta", 250, 8);
-const producto3 = new Producto("insumo", "maceta", 450, 15);
-const producto4 = new Producto("insumo", "sustrato", 550, 7);
-
-create(producto1)
-create(producto2)
-create(producto3)
-create(producto4)
