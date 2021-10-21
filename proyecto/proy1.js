@@ -1,12 +1,30 @@
 class Producto{
-    constructor (nombre, tipo, precio, stock) {
+    constructor (nombre, precio, iva, stock) {
         this.nombre = nombre.toLowerCase()
-        this.tipo = tipo.toLowerCase()
         this.precio = precio
+        this.iva = iva
         this.stock = stock
     }
-    sumaIva(){
-        this.precio = this.precio * 1.21;
+    info () {
+        document.write("Nombre del producto: " + this.nombre + "<br>")
+        document.write("Tipo de producto: " + this.tipo + "<br>")
+        document.write("Precio del producto: " + this.precio + "<br>")
+        document.write("Cantidad de stock " + this.stock + "<br>")
+        document.write("<br>")
+    }
+    valorIva() {
+        if (this.iva == 1) {
+        return this.iva=1.21;
+        }
+        else if (this.iva == 2 ){
+        return this.iva=1;
+        }
+        else {
+        throw new Error ("Debes ingresar un valor correcto: 1 / 2,")
+        }
+    }
+    calculoIva () {
+    return  this.calcIva = (this.precio * this.iva);
     }
 }
 
@@ -19,10 +37,10 @@ do {
         break;
     } else {
         nombre = agregar;
-        let tipo = prompt("Ingrese el tipo de producto");
         let precio= Number(prompt("Ingresa el precio del producto"));
+        let iva= Number(prompt("Ingresa 1 si incluye IVA. Ingresa 2 si no incluye iVA"));
         let stock = Number(prompt("Ingresa la cantidad de stock"))
-        productos.push(new Producto(nombre, tipo, precio, stock));
+        productos.push(new Producto(nombre, precio, iva, stock));
     }
 } while (nombre != "esc" || nombre != "Esc" || nombre != "ESC" );
 
@@ -30,32 +48,24 @@ console.log(productos)
 
 for (const producto of productos){
     document.write("Nombre del producto: " + producto.nombre + "<br>")
-    document.write("Tipo de producto: " + producto.tipo + "<br>")
     document.write("Precio del producto: " + producto.precio + "<br>")
+    document.write("Precio del producto con IVA: " + producto.calcIva + "<br>")
     document.write("Cantidad de stock " + producto.stock + "<br>")
     document.write("<br>")
 }
-
-//FUNCIONES DEL COSTO TOTAL DE PRODUCTOS AGREGADOS
-// function suma() {
-//     let sumar = producto.precio;
-    
-    
-// }
-
 
 //ORDENO PRODUCTOS POR PRECIO
 
-const productosPrecio = productos.sort((a, b) => {
-    return a.precio - b.precio
-});
+// const productosPrecio = productos.sort((a, b) => {
+//     return a.precio - b.precio
+// });
 
-console.log(productosPrecio)
-document.write("<b>Productos ordenados por precio: </b>" + "<br>")
-for (const producto of productosPrecio){
-    document.write("Nombre del producto: " + producto.nombre + "<br>")
-    document.write("Tipo de producto: " + producto.tipo + "<br>")
-    document.write("Precio del producto: " + producto.precio + "<br>")
-    document.write("Cantidad de stock " + producto.stock + "<br>")
-    document.write("<br>")
-}
+// console.log(productosPrecio)
+// document.write("<b>Productos con IVA inlcuido: </b>" + "<br>")
+// for (const producto of productosPrecio){
+//     document.write("Nombre del producto: " + producto.nombre + "<br>")
+//     document.write("Tipo de producto: " + producto.tipo + "<br>")
+//     document.write("Precio del producto: " + producto.precio + "<br>")
+//     document.write("Cantidad de stock " + producto.stock + "<br>")
+//     document.write("<br>")
+// }
