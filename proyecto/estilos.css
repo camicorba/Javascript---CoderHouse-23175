@@ -12,6 +12,12 @@ header{
 .item-clases{
     padding-left: 50px;
 }
+.titulo{
+    color: #4e7228;
+}
+.titulo-secundario{
+    color: #4e7228;
+}
 .titulo-clase{
     font-size: 25px;
     color: #4e7228;
@@ -22,9 +28,32 @@ header{
 }
 .parrafo-expl{
     padding: 20px 50px;
-    border: solid black 1px;
 }
-#lista-prod{
+#form-prod{
+    text-align: center;
     margin-left: auto;
     margin-right: auto;
+
+}
+
+.enter-data{
+    margin: 30px auto;
+    width: 100%;
+    margin: 10px;
+}
+#lista-prod{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    flex-basis: 400px;
+    padding: 20px;
+    justify-content: space-around;
+    align-content: space-around;
+}
+#lista-prod div{
+    padding-bottom: 10px;
+    border-radius: 10px;
+    background-color: #71944b;
+    padding: 15px;
+
 }

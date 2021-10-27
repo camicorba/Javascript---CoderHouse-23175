@@ -40,7 +40,7 @@ for (let producto of productos) {
     itemProd.innerHTML = `
                             Producto: ${producto.nombre} <br>
                             Precio: ${producto.precio} <br>
-                            Cantidad de stock: ${producto.stock}
+                            Cantidad de stock: ${producto.stock} <br>
                             `
 
     listaProd.appendChild(itemProd)

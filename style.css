@@ -1,8 +1,9 @@
 *{
     margin: 0;
     padding: 0;
-    background-color: #e1c699;
+    background-color:white;
     font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    color: #4e7228;
 }
 header{
     text-align: center;
@@ -13,6 +14,7 @@ header{
 }
 .titulo-clase{
     font-size: 25px;
+    color: #4e7228;
 }
 .items{
     padding-left: 50px;
