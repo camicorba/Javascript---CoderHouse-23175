@@ -19,20 +19,20 @@
         <p class="parrafo-expl">En este proyecto, el usuario va a ingresar un producto, precio y cantidad de stock mediante un formulario. Todos los datos se almacenaran y luego se mostraran debajo en cards. </p>
     </div>
     <div class="enter-data">
-        <form id="form-prod">
-            <p>Nombre</p>
-            <input id="input-nombre-prod" autocomplete="off" type="text">
-            <p>Precio</p>
-            <input id="input-precio-prod" autocomplete="off" type="number">
-            <p>Stock</p>
-            <input id="input-stock-prod" autocomplete="off" type="number">
+        <form class="form" id="form-task">
+            <label class="form-label">Tarea</label>
+            <input id="input-name" autocomplete="off" type="text"> <br>
+            <label class="form-label">Descripcion</label>
+            <input id="input-desc" autocomplete="off" type="text"><br>
+            <label class="form-label">Estado</label>
+            <input id="input-estado" autocomplete="off" type="text"><br>
             <div>
-                <button>Agregar Producto</button>
+                <button class="btn">+</button>
             </div>
         </form>
     </div>
     
-        <div id="lista-prod"> </div>
+        <div id="lista-task"> </div>
 
 
     <script src="proy1.js"></script>

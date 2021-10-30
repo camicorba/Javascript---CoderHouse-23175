@@ -1,59 +1,56 @@
-class Producto{
-    constructor (nombre, precio, stock) {
-        this.nombre = nombre.toLowerCase()
-        this.precio = precio
-        this.stock = stock
+class Tarea{
+    constructor (name, desc, estado) {
+        this.name = name.toLowerCase()
+        this.desc = desc
+        this.estado = estado
     }
     info () {
-        document.write("Nombre del producto: " + this.nombre + "<br>")
-        document.write("Precio del producto: " + this.precio + "<br>")
-        document.write("Cantidad de stock " + this.stock + "<br>")
+        document.write("Tarea: " + this.name + "<br>")
+        document.write("Descripcion: " + this.desc + "<br>")
+        document.write("Estado " + this.estado + "<br>")
         document.write("<br>")
-    }
-    calculoIva () {
-      this.precioIva = this.precio * 1.21
     }
 }
 
-// CREO LA LISTA DONDE SE GUARDAN LOS PRODUCTOS
-let productos = JSON.parse(localStorage.getItem('productos')) || []
+// CREO LA LISTA DONDE SE GUARDAN LAS TAREAS
+let tareas = JSON.parse(localStorage.getItem('tareas')) || []
 
-//METODO PARA AGREGAR LOS PRODUCTOS A LA LISTA
-const create = (producto) => {
-    productos.push(producto)
-    localStorage.setItem('productos', JSON.stringify(productos))
+//METODO PARA AGREGAR LOS TAREAS A LA LISTA
+const create = (tarea) => {
+    tareas.push(tarea)
+    localStorage.setItem('tareas', JSON.stringify(tareas))
 }
 
 //ACCEDO A LOS ELEMENTOS DEL DOM
-const listaProd = document.getElementById('lista-prod')
-const formProd = document.getElementById('form-prod')
-const inputPrNombre = document.getElementById('input-nombre-prod')
-const inputPrPrecio = document.getElementById('input-precio-prod')
-const inputPrStock = document.getElementById('input-stock-prod')
+const listaTask = document.getElementById('lista-task')
+const formTask = document.getElementById('form-task')
+const inputName = document.getElementById('input-name')
+const inputDesc = document.getElementById('input-desc')
+const inputEstado = document.getElementById('input-estado')
 
 
-//AGREGO LOS PRODUCTOS 
-for (let producto of productos) {
+//AGREGO LAS TAREAS
+for (let tarea of tareas) {
 
-    let itemProd = document.createElement('div')
+    let itemTask = document.createElement('div')
 
-    itemProd.innerHTML = `
-                            Producto: ${producto.nombre} <br>
-                            Precio: ${producto.precio} <br>
-                            Cantidad de stock: ${producto.stock} <br>
+    itemTask.innerHTML = `
+                            Tarea: ${tarea.name} <br>
+                            Descripcion: ${tarea.desc} <br>
+                            Estado: ${tarea.estado} <br>
                             `
 
-    listaProd.appendChild(itemProd)
+    listaTask.appendChild(itemTask)
 }
 
-formProd.addEventListener('submit', (event) => {
-    const nombre = inputPrNombre.value
-    const precio = inputPrPrecio.value
-    const stock = inputPrStock.value
+formTask.addEventListener('submit', (event) => {
+    const name = inputName.value
+    const desc = inputDesc.value
+    const estado = inputEstado.value
 
-    const producto = new Producto(nombre, precio, stock)
+    const tarea = new Tarea(name, desc, estado)
 
-    create(producto)
+    create(tarea)
 
 
 })
