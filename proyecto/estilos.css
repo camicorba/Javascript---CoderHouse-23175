@@ -34,11 +34,11 @@ header{
 .form-label{
     text-transform: uppercase;
 }
-.input-name , .input-desc,  .input-estado{
+.input-tarea , .input-desc{
     padding: 6px;
 
 }
-.btn{
+.add-btn{
     height: 40px;
     width: 200px;
     margin-top: 10px;
